@@ -6,7 +6,7 @@
 \RequirePackage[T2A]{fontenc}
 \RequirePackage[russian]{babel}
 \setmainfont[Ligatures=TeX]{Cambria}
-\setsansfont{Arial}
+\setsansfont{Arimo}
 \setmonofont{Consolas}[Scale = 0.93]
 \RequirePackage{unicode-math}
 \setmathfont{Cambria Math} 
@@ -26,7 +26,7 @@
 	colorlinks=true,
 	linkcolor=Crimson,
 	urlcolor=Navy,
-	pdftitle={Домашка по топологии},
+	pdftitle={Курс по Алгебре},
 	pdfauthor={Лунёв Егор Артёмович},
 ]{hyperref}
 
@@ -48,36 +48,40 @@
 \newtheorem{corollary}{Следствие}[theorem]
 \theoremstyle{definition}
 \newtheorem{definition}[theorem]{Определение}
+\newtheorem{prac}{Упражнение}
+\counterwithin*{prac}{section}
 \theoremstyle{remark}
 \newtheorem*{remark}{Замечание}
 \newtheorem{example}{Пример}
-\counterwithin*{example}{theorem}
-\counterwithin*{example}{corollary}
 \counterwithin*{example}{section}
-\newtheorem{practice}{Упражнение}
-\counterwithin*{practice}{theorem}
-\counterwithin*{practice}{corollary}
-\counterwithin*{practice}{section}
 \counterwithin{equation}{section}
+
+\newenvironment{practice}[1][]{%
+    \noindent\begin{minipage}{\linewidth}%
+        \footnotesize
+        \begin{prac}[#1]%
+        }{%
+        \end{prac}%
+    \end{minipage}%
+
+    \vspace{0.5em}%
+}
 
 %% cleveref
 \RequirePackage[russian, noabbrev]{cleveref}
-\crefname{tasksi}{задачи}{задач}
-\crefname{tasksii}{задачи}{задач}
-\crefname{theorem}{теоремы}{теорем}
-\crefname{lemma}{леммы}{лемм}
-\crefname{equation}{уравнения}{уравнения}
-\crefname{corollary}{следствия}{следствия}
-\crefname{definition}{определения}{определения}
-\crefname{remark}{замечания}{замечаний}
-\crefname{proposition}{утверждения}{утверждений}
-\crefname{example}{примера}{примеров}
-\crefname{table}{таблицы}{таблиц}
-\crefname{figure}{рисунку}{рисункам}
-
-
-
-
+\crefname{tasksi}{задаче}{задачаx}
+\crefname{tasksii}{задаче}{задачаx}
+\crefname{theorem}{теореме}{теоремаx}
+\crefname{lemma}{леммы}{лемма}
+\crefname{equation}{уравнения}{уравнение}
+\crefname{corollary}{следствия}{следствие}
+\crefname{definition}{определения}{определениe}
+\crefname{remark}{замечания}{замечание}
+\crefname{practice}{упражнения}{упражнение}
+\crefname{proposition}{утверждения}{утверждение}
+\crefname{example}{примера}{пример}
+\crefname{table}{таблицы}{таблица}
+\crefname{figure}{рисунку}{рисунок}
 
 % Lists
 \RequirePackage{enumitem}
@@ -122,7 +126,6 @@
 
 %% \newcommand
 \newcommand*\rfrac[2]{{}^{#1}\!/_{#2}}
-\newcommand{\such}{\,|\,}
 \newcommand{\R}{\mathbb R}
 \newcommand{\Q}{\mathbb Q}
 \newcommand{\Z}{\mathbb Z}
