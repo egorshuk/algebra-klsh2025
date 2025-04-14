@@ -18,6 +18,13 @@
 \RequirePackage[svgnames]{xcolor}
 %\coffeestainA{0.3}{0.7}{-25}{3cm}{1.3cm}
 
+\usepackage[inline]{asymptote}
+\begin{asydef}
+    settings.outformat = "pdf";
+    import geometry;
+    pen hpen = deepgreen+6;
+\end{asydef}
+\def\asydir{asy}
 
 
 
@@ -72,16 +79,16 @@
 \crefname{tasksi}{задаче}{задачаx}
 \crefname{tasksii}{задаче}{задачаx}
 \crefname{theorem}{теореме}{теоремаx}
-\crefname{lemma}{леммы}{лемма}
-\crefname{equation}{уравнения}{уравнение}
-\crefname{corollary}{следствия}{следствие}
-\crefname{definition}{определения}{определениe}
-\crefname{remark}{замечания}{замечание}
-\crefname{practice}{упражнения}{упражнение}
-\crefname{proposition}{утверждения}{утверждение}
-\crefname{example}{примера}{пример}
-\crefname{table}{таблицы}{таблица}
-\crefname{figure}{рисунку}{рисунок}
+\crefname{lemma}{лемме}{лемма}
+\crefname{equation}{уравнении}{уравнение}
+\crefname{corollary}{следствии}{следствие}
+\crefname{definition}{определении}{определениe}
+\crefname{remark}{замечании}{замечание}
+\crefname{prac}{упражнении}{упражнение}
+\crefname{proposition}{утверждении}{утверждение}
+\crefname{example}{примерe}{пример}
+\crefname{table}{таблице}{таблица}
+\crefname{figure}{рисунке}{рисунок}
 
 % Lists
 \RequirePackage{enumitem}
