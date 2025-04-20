@@ -1,13 +1,21 @@
-\documentclass[11pt, twoside]{article}
+\documentclass[10pt, twoside]{article}
 \usepackage{be-my-concrete, be-my-geometry}
 
 
 \begin{document}
 
+\pagestyle{empty}
+\input{misc/abstract.tex}
+\newpage
+
 \tableofcontents
 \pagebreak
 
-\section{Введение в группы}
+\
+\newpage
+
+\setcounter{page}{1}
+\pagestyle{fancy}
 
 Алгебра -- наука о структурах, которые описываются с помощью операций и законов. 
 Возможно, то что мы будем называть ``алгебра'' -- это не совсем то, что вы привыкли называть ``алгебра''. 
@@ -17,6 +25,7 @@
 Это одно из самых ``базовых понятий'', но оно же и является центральным. 
 
 \input{sections/permutations}
+\input{problems/permutations}
 \input{sections/intro-groups}
 
 \end{document}

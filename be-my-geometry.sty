@@ -6,8 +6,8 @@
 	a5paper,
 	left = 1.5cm, 
 	right = 1.5cm, 
-	top = 2.5cm, 
-	bottom = 3cm,
+	top = 2cm, 
+	bottom = 2cm, 
 	footnotesep = 5mm
 ]{geometry}
 
@@ -17,7 +17,7 @@
 \def\columnseprulecolor{\color{Navy}}
 \setlength{\columnsep}{1cm}
 \setlength{\columnseprule}{1pt}
-\interfootnotelinepenalty=10000
+\interfootnotelinepenalty=10000000
 \counterwithin*{footnote}{page}
 
 
@@ -33,16 +33,19 @@
 
 \pagestyle{fancy}
 \fancyhead{}
-\fancyhead[RO]{
-	\href{https://t.me/egorrshuk}{егоррррршук} 
+\fancyhead[LO, RE]{
+    \thepage
+}
+\fancyhead[C]{
+    \nouppercase{\rightmark}
 }
 
-\fancyhead[LO, RE]{
-	\nouppercase{\leftmark \\
-		\rightmark}
-}
+% \fancyhead[RO, LE]{
+% 	\nouppercase{\leftmark \\
+% 		\rightmark}
+% }
+
 \fancyfoot{}
-\fancyfoot[LO, RE]{\thepage}
 
 
 

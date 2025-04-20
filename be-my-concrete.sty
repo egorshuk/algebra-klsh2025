@@ -58,11 +58,21 @@
 \newtheorem{prac}{Упражнение}
 \counterwithin*{prac}{section}
 \theoremstyle{remark}
-\newtheorem*{remark}{Замечание}
+\newtheorem*{rem}{Замечание}
 \newtheorem{example}{Пример}
 \counterwithin*{example}{section}
 \counterwithin{equation}{section}
 
+\newenvironment{remark}[1][]{%
+    \noindent\begin{minipage}{\linewidth}%
+        \footnotesize
+        \begin{rem}[#1]%
+        }{%
+        \end{rem}%
+    \end{minipage}%
+
+    \vspace{0.5em}%
+}
 \newenvironment{practice}[1][]{%
     \noindent\begin{minipage}{\linewidth}%
         \footnotesize
@@ -91,7 +101,8 @@
 \crefname{figure}{рисунке}{рисунок}
 
 % Lists
-\RequirePackage{enumitem}
+\RequirePackage[inline]{enumitem}
+
 \newlist{conditions}{enumerate}{2}
 
 \setlist[conditions, 1]{

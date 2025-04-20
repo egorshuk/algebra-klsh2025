@@ -1,8 +1,12 @@
-\subsection{Перестановки}
+\section{Перестановки}
 
 Самая интерпретируемая группа -- это группа перестановок.
 Вероятно, вы уже слышали о том, что такое перестановка, не задумываясь о её групповой структуре.
 Для начала, ``нестрого'' разберемся с перестановками.
+
+\begin{practice}
+    Сколько есть способов переставить $n$ человек в очереди?
+\end{practice}
 
 \begin{example}
     Напишем, какое-нибудь слово, например: \[
@@ -60,12 +64,244 @@
 А значит, вернуться в исходную группу (в частности, получить слово \textsf{АДО})
 можно только за четное число шагов.
 
-\begin{tasks}
-    \item Возьмите какое-нибудь четырёхбуквенное слово, скажем, прошлое слово \textsf{УШКА}.
-        Покажите, что все варианты (\emph{А сколько, кстати, их?}) тоже разбиваются на две группы,
-        и обмен двух букв местами переводит нас из одной группы в другую.
-    \item Вова сказала своей подруге, что подарит ей доширак,
-        если она в слове \textsf{КОМАНДА} сделает семь попарных обменов и получит исходное слово.
-        В чём просчитался Вова?
-\end{tasks}
+\subsection{Нотация перестановок}
+\begin{definition}
+    [Перестановка]
+    Перестановка -- это функция, которая отображает множество букв в себя.
+    \[
+        \sigma: \{1, 2, \ldots, n\} \to \{1, 2, \ldots, n\}.
+    \]
+    
+    Перестановка $\sigma$ может быть записана в виде\footnote{
+    Существуют и другая запись: $(\sigma(1) \; \sigma(2) \; \sigma(3) \; \ldots \; \sigma(n))$.} \[
+        \sigma = \begin{pmatrix}
+            1 & 2 & 3 & \ldots & n \\
+            \sigma(1) & \sigma(2) & \sigma(3) & \ldots & \sigma(n)
+        \end{pmatrix}.
+    \]
+\end{definition}
+\begin{example}
+    При перестановка $\sigma = \begin{pmatrix}
+        1 & 2 & 3 & 4 \\
+        2 & 1 & 4 & 3
+    \end{pmatrix}$ 
+    Первая буква переходит на вторую, вторая -- на первую, третья -- на четвёртую, четвёртая -- на третью.
+    Допустим, со словом \textsf{РЫБА} наша перестановка сделает (на \cref{fig:permutation}):
+    \[
+        \sigma(\text{\textsf{РЫБА}}) = \text{\textsf{ЫРАБ}}.
+    \]
 
+    \begin{figure}[ht]
+        \centering
+        \begin{asy}
+            size(7cm);
+            defaultpen(fontsize(10));
+
+            pair[] start = {(0,0), (1,0), (2,0), (3,0)};
+            string[] startText = {"Р","Ы","Б","А"};
+
+            pair[] end = {(0,-2), (1,-2), (2,-2), (3,-2)};
+            string[] endText = {"Ы","Р","А","Б"};
+
+            // Подписи букв
+            for(int i = 0; i < 4; ++i) {
+                label(startText[i], start[i], N);
+                label(endText[i], end[i], S);
+            }
+
+            // Кривые "ниточки"
+            draw(start[0]..(0.3, -0.5)..end[1], blue+linewidth(1)); // Р -> Ы
+            draw(start[1]..(0.6, -0.5)..end[0], blue+linewidth(1)); // Ы -> Р
+            draw(start[2]..(2.4, -1.4)..end[3], longdashed+red+linewidth(1)); // Б -> А
+            draw(start[3]..(2.8, -1.4)..end[2], longdashed+red+linewidth(1)); // А -> Б
+
+            
+        label("$\begin{pmatrix} 2 & 2 & 3 & 4 \\ 2 & 1 & 4 & 3 \end{pmatrix}$", (4.5, -1));
+        \end{asy}
+        \caption{Перестановка $\sigma$.}
+        \label{fig:permutation}
+    \end{figure}
+\end{example}
+
+\setcounter{footnote}{0}
+Применяя одну перестановку за другой, мы можем получить новую перестановку. 
+Для этого тоже есть запись. Пусть у нас есть две перестановки $\sigma$ и $\tau$.
+Тогда их произведение $\sigma \circ \tau$ -- это перестановка, которая получается из $\tau$,
+после чего к ней применяют $\sigma$\footnote{Да! Именно так! Слева-направо!}. 
+
+\begin{example}
+    Пусть $\sigma = \begin{pmatrix}
+        1 & 2 & 3 & 4 \\
+        2 & 1 & 4 & 3
+    \end{pmatrix}$ и $\tau = \begin{pmatrix}
+        1 & 2 & 3 & 4 \\
+        2 & 4 & 3 & 1
+    \end{pmatrix}$.
+    Тогда их произведение будет равно: 
+    \[
+        \sigma \circ \tau = \begin{pmatrix}
+            1 & 2 & 3 & 4 \\
+            \sigma(\tau(1)) & \sigma(\tau(2)) & \sigma(\tau(3)) & \sigma(\tau(4))
+        \end{pmatrix} = \begin{pmatrix}
+            1 & 2 & 3 & 4 \\
+            1 & 3 & 4 & 2
+        \end{pmatrix}.
+    \]
+    
+    Давайте рассмотрим, что у нас происходит на примере слова \textsf{КИНО} (на \cref{fig:permutation2}).
+    
+    \begin{figure}[h]
+        \centering
+        \begin{asy}
+            size(7cm);
+            defaultpen(fontsize(10));
+
+            pair[] start = {(0,0), (1,0), (2,0), (3,0)};
+            string[] startText = {"К","И","Н","О"};
+            pair[] mid = {(0, -2), (1, -2), (2, -2), (3, -2)};
+            string[] midText = {"О","К","Н","И"};
+            pair[] end = {(0, -4), (1, -4), (2, -4), (3, -4)};
+            string[] endText = {"К","О","И","Н"};
+
+            for(int i = 0; i < 4; ++i) {
+                label(startText[i], start[i], N);
+                label(midText[i], mid[i], N);
+                label(endText[i], end[i], S);
+            }
+
+            // Кривые "ниточки"
+            draw(start[0]{(1, -1)}..(mid[1]+(0, 0.3)), blue+linewidth(1)); // К -> Н
+            draw(start[1]{(1, -2)}..(mid[3]+(0, 0.3)), blue+linewidth(1)); // И -> О
+            draw(start[2]..(mid[2]+(0, 0.3)), blue+linewidth(1)); // Н -> К
+            draw(start[3]{(-6, -1)}..(mid[0]+(0, 0.3)), blue+linewidth(1)); // О -> И
+
+            draw(mid[0]{(0.5, -2)}..end[1], longdashed+red+linewidth(1)); // Н -> О
+            draw(mid[1]{(1, -2)}..end[0], longdashed+red+linewidth(1)); // О -> Н
+            draw(mid[2]{(3, -2)}..end[3], longdashed+red+linewidth(1)); // К -> И
+            draw(mid[3]{(-5, -2)}..end[2], longdashed+red+linewidth(1)); // И -> К
+
+            label(scale(0.9)*"$\begin{pmatrix} 1 & 2 & 3 & 4 \\ 2 & 4 & 3 & 1 \end{pmatrix}$", (4.5, -0.7));
+            label(scale(0.9)*"$\begin{pmatrix} 1 & 2 & 3 & 4 \\ 2 & 1 & 4 & 3 \end{pmatrix}$", (4.5, -2.7));
+            
+        \end{asy}
+        \caption{Перестановка $\sigma \circ \tau$.}
+        \label{fig:permutation2}
+    \end{figure}
+\end{example}
+
+\begin{practice}
+    Найдите композицию $\tau \circ \sigma$. Проверьте, что это не то же самое, что $\sigma \circ \tau$.
+\end{practice}
+
+\begin{definition}
+    [Циклическая запись]
+    Любую перестановку можно записать в виде произведения циклов.
+    Например, перестановка $\sigma$ (на \cref{fig:permutation4}) \[
+        \sigma = \begin{pmatrix}
+            1 & 2 & 3 & 4 & 5 & 6 \\
+            3 & 1 & 5 & 6 & 2 & 4
+        \end{pmatrix}.
+    \] 
+    Записывается в виде: \[
+        \sigma = |1 \; 3 \; 5 \; 2\rangle |4 \; 6\rangle.
+    \]
+    У такой записи есть ``свобода выбора''. Один и тот же цикл можно записать по-разному. 
+    Например, \[
+        |1 \; 3 \; 5 \; 2\rangle = |3 \; 5 \; 2 \; 1\rangle = |5 \; 2 \; 1 \; 3\rangle = |2 \; 1 \; 3 \; 5\rangle.
+    \]
+
+    Мы будем говорить, что у перестановки $\sigma$ цикловой тип $\left( 4,2 \right)$ 
+    (в данном случае, это значит, что у нас есть один 4-цикл и один 2-цикл).
+    А иногда еще будем рисовать диаграмму Юнга (на \cref{fig:permutation3}), данного циклового типа.
+
+    \begin{figure}[ht]
+        \centering
+        \begin{asy}
+            size(2cm);
+            defaultpen(fontsize(10));
+
+            draw(unitsquare);
+            draw(shift(1, 0)*unitsquare);
+            for (int i = 0; i < 4; ++i) {
+                draw(shift(i, 1)*unitsquare);
+            }
+                
+
+            label("1", (0.5, 1.5));
+            label("3", (1.5, 1.5));
+            label("5", (2.5, 1.5));
+            label("2", (3.5, 1.5));
+            label("4", (0.5, 0.5));
+            label("6", (1.5, 0.5));
+        \end{asy}
+        \hspace{1cm} или просто \hspace{1cm}
+        \begin{asy}
+            size(2cm);
+            defaultpen(fontsize(10));
+
+            draw(unitsquare);
+            draw(shift(1, 0)*unitsquare);
+            for (int i = 0; i < 4; ++i) {
+                draw(shift(i, 1)*unitsquare);
+            }
+        \end{asy}
+        \caption{Цикловой тип перестановки $\sigma$.}
+        \label{fig:permutation3}
+    \end{figure}
+
+\end{definition}
+\begin{figure}[ht]
+    \centering
+    \begin{asy}
+        size(7cm);
+        defaultpen(fontsize(10));
+
+        pair[] start = {(0,0), (1,0), (2,0), (3,0), (4,0), (5,0)};
+        string[] startText = {"1","2","3","4","5","6"};
+        pair[] end = {(0,-2), (1,-2), (2,-2), (3,-2), (4,-2), (5,-2)};
+        string[] endText = {"3","1","5","6","2","4"};
+        // Подписи букв
+        for(int i = 0; i < 6; ++i) {
+            label(startText[i], start[i], N);
+            label(endText[i], end[i], S);
+        }
+
+        // Кривые "ниточки"
+        draw(start[0]{(1, -2)}..end[2], blue+linewidth(1)); // 1 -> 3
+        draw(start[1]{(1.2, -2)}..end[4], blue+linewidth(1)); // 2 -> 5
+        draw(start[2]{(1, -2)}..end[1], blue+linewidth(1)); // 3 -> 1
+        draw(start[3]{(6, -1)}..end[5], longdashed+red+linewidth(1)); // 4 -> 6
+        draw(start[4]{(-3, -1)}..end[0], blue+linewidth(1)); // 5 -> 2
+        draw(start[5]{(-3, -2)}..end[3], longdashed+red+linewidth(1)); // 6 -> 4
+
+        label(scale(0.8)*"$\begin{pmatrix} 1 & 2 & 3 & 4 & 5 & 6 \\ 3 & 1 & 5 & 6 & 2 & 4 \end{pmatrix}$", (8, -1));
+    \end{asy}
+    \caption{Циклическая запись перестановки.}
+    \label{fig:permutation4}
+\end{figure}
+
+Есть одно важное понятие, которое может таким не показаться.
+Возможно, мы не сможем в полном объеме раскрыть его в этом курсе, но что же поделать.
+Перед этим, скажем, что \emph{транспозиция} -- это перестановка, которая меняет местами только две буквы.
+
+\begin{definition}
+    [Четность перестановки]
+    Перестановка называется четной, если она может быть записана в виде произведения четного числа транспозиций.
+    Иначе, она называется нечетной.
+\end{definition}
+
+\begin{definition}
+    [Порядок перестановки]
+    Порядок перестановки $\sigma$ -- это наименьшее число $n$, такое что \[
+        \sigma^n = \text{id}.
+    \]
+\end{definition}
+
+\begin{theorem}
+    [Порядок перестановки]
+    Порядок перестановки $\sigma$ равен наибольшему общему делителю длин всех циклов в её циклической записи.
+\end{theorem}
+\begin{proof}
+    Цикл длины $k_i$ возвращает элементы на место после $k_i$ применений. Поскольку циклы не пересекаются, порядок всей перестановки — минимальное число $k$, при котором $k$ делится на каждое $k_i$.  
+    Это и есть наименьшее общее кратное $k_1, k_2, \dots, k_m$.
+\end{proof}
