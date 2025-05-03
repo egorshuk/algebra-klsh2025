@@ -21,16 +21,22 @@
 Первая структура, с которой мы с вами познакомимся -- это группы.
 Это одно из самых ``базовых понятий'', но оно же и является центральным. 
 
+% --------------    1
 \input{sections/permutations}
+% --------------    2
 \input{sections/intro-groups}
-\input{sections/lagrange}
+\input{sections/shape-isometry}
+% --------------    3
 \input{sections/homomorphism}
+% --------------    4
 \input{sections/action}
-\input{sections/cong}
 \input{sections/burnside}
-\input{sections/intro-rings}
+% --------------    5
 \input{sections/polynoms}
-\input{sections/fields}
+% --------------    6
+\input{sections/complex}
+% --------------    7
+\input{sections/gauss}
 
 \newpage
 \renewcommand{\thesubsection}{\roman{subsection}}
@@ -40,17 +46,24 @@
 \addcontentsline{toc}{section}{Задачи}
 \subsection{Перестановки}
 \input{problems/first.tex}
-\subsection{Группы и теорема Лагранжа}
-\input{problems/second.tex}
-\subsection{Гомоморфизмы и действие группы на множестве}
-\input{problems/third.tex}
-\subsection{Лемма Бернсайда и теорема Пойа: ожерелья, орнаменты}
-%\input{problems/fourth.tex}
-\subsection{Кольца и многочлены}
-%\input{problems/fifth.tex}
-\subsection{Поля. Конечные поля. Факторкольца. Расширение полей} % этого листка не будет на семинарах
-%\input{problems/sixth.tex}
-%\input{misc/exam.tex}
+\subsection{Группы}
+\input{problems/second.tex}         % TODO: Добавить больше задач на диэдров
+\subsection{Гомоморфизмы и собственные группы фигур}
+\input{problems/third.tex}          % TODO: Добавить задач на собственные группы
+\subsection{Орбита и стабилизатор. Лемма Бернсайда и теорема Пойа: ожерелья, орнаменты}
+% \input{problems/fourth.tex}
+\subsection{Многочлены}
+% \input{problems/fifth.tex}
+\subsection{Комплексные числа}
+% \input{problems/sixth.tex}
+\subsection{Гауссовы числа ``в хвост и в гриву''} % этого листка не будет на семинарах
+% \subsection{problems/seventh.tex}
+
+\newpage
+\markboth{Контрольная работа}{Контрольная работа}
+\addcontentsline{toc}{section}{Контрольная работа}
+\section*{Контрольная работа}
+% \input{tasks/exam.tex}
 
 \end{document}
 
