@@ -86,16 +86,14 @@
 
 %% cleveref
 \RequirePackage[russian, noabbrev]{cleveref}
-\crefname{tasksi}{задаче}{задачаx}
-\crefname{tasksii}{задаче}{задачаx}
-\crefname{theorem}{теореме}{теоремаx}
-\crefname{lemma}{лемме}{лемма}
+\crefname{enumi}{задаче}{задачаx}
+\crefname{enumii}{задаче}{задачаx}
+\crefname{theorem}{теореме}{теоремах}
 \crefname{equation}{уравнении}{уравнение}
 \crefname{corollary}{следствии}{следствие}
 \crefname{definition}{определении}{определениe}
 \crefname{remark}{замечании}{замечание}
 \crefname{prac}{упражнении}{упражнение}
-\crefname{proposition}{утверждении}{утверждение}
 \crefname{example}{примерe}{пример}
 \crefname{table}{таблице}{таблица}
 \crefname{figure}{рисунке}{рисунок}
@@ -116,17 +114,17 @@
 	rightmargin=.5cm}
 
 
-\newlist{tasks}{enumerate}{2}
-\setlist[tasks, 1]{
-	label={\textbf{Задача \arabic{tasksi}:}},
-	leftmargin = 1mm,
-	labelsep = 5mm,
-	itemindent = 2.05cm
-}
-\setlist[tasks, 2]{
-	label=(\arabic{tasksi}.\alph{tasksii}),
-	itemindent=6mm
-}
+% \newlist{tasks}{enumerate}{2}
+% \setlist[tasks, 1]{
+% 	label={\textbf{Задача \arabic{tasksi}:}},
+% 	leftmargin = 1mm,
+% 	labelsep = 5mm,
+% 	itemindent = 2.05cm
+% }
+% \setlist[tasks, 2]{
+% 	label=(\arabic{tasksi}.\alph{tasksii}),
+% 	itemindent=6mm
+% }
 
 
 
