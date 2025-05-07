@@ -98,10 +98,10 @@
             defaultpen(fontsize(10));
 
             pair[] start = {(0,0), (1,0), (2,0), (3,0)};
-            string[] startText = {"Й","О","Т","А"};
+            string[] startText = {"\textsf{Й}","\textsf{О}","\textsf{Т}","\textsf{А}"};
 
             pair[] end = {(0,-2), (1,-2), (2,-2), (3,-2)};
-            string[] endText = {"О","Й","А","Т"};
+            string[] endText = {"\textsf{О}","\textsf{Й}","\textsf{А}","\textsf{Т}"};
 
             // Подписи букв
             for(int i = 0; i < 4; ++i) {
@@ -157,11 +157,11 @@
             defaultpen(fontsize(10));
 
             pair[] start = {(0,0), (1,0), (2,0), (3,0)};
-            string[] startText = {"К","И","Н","О"};
+            string[] startText = {"\textsf{К}","\textsf{И}","\textsf{Н}","\textsf{О}"};
             pair[] mid = {(0, -2), (1, -2), (2, -2), (3, -2)};
-            string[] midText = {"О","К","Н","И"};
+            string[] midText = {"\textsf{О}","\textsf{К}","\textsf{Н}","\textsf{И}"};
             pair[] end = {(0, -4), (1, -4), (2, -4), (3, -4)};
-            string[] endText = {"К","О","И","Н"};
+            string[] endText = {"\textsf{К}","\textsf{О}","\textsf{И}","\textsf{Н}"};
 
             for(int i = 0; i < 4; ++i) {
                 label(startText[i], start[i], N);
@@ -170,16 +170,15 @@
             }
 
             // Кривые "ниточки"
-            draw(start[0]{(1, -1)}..(mid[1]+(0, 0.3)), blue+linewidth(1)); // К -> Н
-            draw(start[1]{(1, -2)}..(mid[3]+(0, 0.3)), blue+linewidth(1)); // И -> О
-            draw(start[2]{(1, -3)}..(mid[2]+(0, 0.3)), blue+linewidth(1)); // Н -> К
-            draw(start[3]{(-6, -1)}..(mid[0]+(0, 0.3)), blue+linewidth(1)); // О -> И
+            draw(start[0]{(1, -1)}..(mid[1]+(0, 0.4)), blue+linewidth(1)); // К -> Н
+            draw(start[1]{(1, -2)}..(mid[3]+(0, 0.4)), blue+linewidth(1)); // И -> О
+            draw(start[2]{(1, -3)}..(mid[2]+(0, 0.4)), blue+linewidth(1)); // Н -> К
+            draw(start[3]{(-6, -1)}..(mid[0]+(0, 0.4)), blue+linewidth(1)); // О -> И
 
             draw(mid[0]{(0.5, -2)}..end[1], longdashed+red+linewidth(1)); // Н -> О
             draw(mid[1]{(1, -2)}..end[0], longdashed+red+linewidth(1)); // О -> Н
             draw(mid[2]{(3, -1)}..end[3], longdashed+red+linewidth(1)); // К -> И
             draw(mid[3]{(0, -2)}..end[2], longdashed+red+linewidth(1)); // И -> К
-
             label(scale(0.9)*"$\begin{pmatrix} 1 & 2 & 3 & 4 \\ 2 & 4 & 3 & 1 \end{pmatrix}$", (4.5, -0.7));
             label(scale(0.9)*"$\begin{pmatrix} 1 & 2 & 3 & 4 \\ 2 & 1 & 4 & 3 \end{pmatrix}$", (4.5, -2.7));
             
