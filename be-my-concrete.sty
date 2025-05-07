@@ -5,13 +5,11 @@
 \RequirePackage{fontspec}
 \RequirePackage[T2A]{fontenc}
 \RequirePackage[russian]{babel}
-\setmainfont[Ligatures=TeX]{Cambria}
-\setsansfont{Arimo}
-\setmonofont{Consolas}[Scale = 0.93]
+\setsansfont{Nimbus Sans}
+\setmonofont{Monofur Nerd Font Mono}[Scale = 0.93]
 \RequirePackage{unicode-math}
-\setmathfont{Cambria Math} 
-
-
+\setmainfont[Ligatures=TeX]{Cambria}
+\setmathfont{Cambria Math}
 
 % Etc. Packages
 \RequirePackage{graphicx, multicol, import, epigraph, coffeestains}
@@ -99,7 +97,7 @@
 \crefname{figure}{рисунке}{рисунок}
 
 % Lists
-\RequirePackage[inline]{enumitem}
+\RequirePackage[inline, shortlabels]{enumitem}
 
 \newlist{conditions}{enumerate}{2}
 
@@ -113,6 +111,11 @@
 	leftmargin=1cm,
 	rightmargin=.5cm}
 
+\newlist{inumerate}{enumerate*}{1}
+\setlist[inumerate, 1]{
+    label = (\alph{inumeratei}),
+    before=\unskip{: }, itemjoin={{;\quad}}, itemjoin*={{, и\quad}}
+}
 
 % \newlist{tasks}{enumerate}{2}
 % \setlist[tasks, 1]{
