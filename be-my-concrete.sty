@@ -12,7 +12,7 @@
 \setmathfont{Cambria Math}
 
 % Etc. Packages
-\RequirePackage{graphicx, multicol, import, epigraph, coffeestains}
+\RequirePackage{graphicx, multicol, import, epigraph, coffeestains, indentfirst}
 \RequirePackage[svgnames]{xcolor}
 %\coffeestainA{0.3}{0.7}{-25}{3cm}{1.3cm}
 
@@ -109,12 +109,26 @@
 \setlist[conditions, 2]{
 	label=(\roman{conditionsi}.\alph{conditionsii}), % (i.a), (i.b), (i.c)
 	leftmargin=1cm,
-	rightmargin=.5cm}
+	rightmargin=.5cm
+}
 
 \newlist{inumerate}{enumerate*}{1}
 \setlist[inumerate, 1]{
     label = (\alph{inumeratei}),
     before=\unskip{: }, itemjoin={{;\quad}}, itemjoin*={{, и\quad}}
+}
+
+\newlist{bullets}{itemize}{3}
+
+\setlist[bullets, 1]{
+	label=$\circ$,
+	leftmargin=1cm,
+	rightmargin=.5cm
+}
+\setlist[conditions, 2]{
+	label=$\circ \circ$,
+	leftmargin=1cm,
+	rightmargin=.5cm
 }
 
 % \newlist{tasks}{enumerate}{2}

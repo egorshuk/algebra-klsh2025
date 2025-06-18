@@ -5,5 +5,57 @@
 \namenumberpage{Перестановки}{1}
 
 \begin{document}
+
+\subsection*{Словарик}
+\begin{bullets}
+    \item \emph{Перестановка} -- это отображение, которое переставляет элементы множества. У одного такого отображения есть несколько записей: \[\underbrace{\begin{pmatrix}1 & 2 & 3 & 4 & 5 \\ 2 & 3 & 1 & 5 & 4\end{pmatrix}}_{\text{Матричная запись}}\qquad\text{и}\qquad \underbrace{|1 3 2 \rangle | 4 5 \rangle}_{\text{Композиция циклов}}\]
+
+    \item \emph{Цикловым типом} перестановки называется соответсвующая диаграмма Юнга (квадратики в рядах) или набор чисел. Например, у прошлой перестановки цикловой тип $(3, 2)$. А диаграмма Юнга:
+\end{bullets}
+        \begin{figure}[ht]
+            \centering
+            \begin{asy}
+                size(1.5cm);
+                defaultpen(fontsize(10));
+
+                draw(unitsquare);
+                draw(shift(1, 0)*unitsquare);
+                for (int i = 0; i < 3; ++i) {
+                    draw(shift(i, 1)*unitsquare);
+                }
+
+
+                label("1", (0.5, 1.5));
+                label("3", (1.5, 1.5));
+                label("2", (2.5, 1.5));
+                label("4", (0.5, 0.5));
+                label("5", (1.5, 0.5));
+            \end{asy}
+            \hspace{1cm} или просто \hspace{1cm}
+            \begin{asy}
+                size(1.5cm);
+                defaultpen(fontsize(10));
+
+                draw(unitsquare);
+                draw(shift(1, 0)*unitsquare);
+                for (int i = 0; i < 3; ++i) {
+                    draw(shift(i, 1)*unitsquare);
+                
+    \end{asy}
+\end{figure}
+
+\begin{bullets}
+\item \emph{Порядок перестановки} обозначает минимальное число раз, которое нужно применить перестановку, чтобы получить изначальную расстановку (т.е. тривиальную перестановку). Например, у перестановки выше порядок равен 6.
+
+\item Перестановка называется \emph{чётной}, если в ней присутствует чётное число циклов чётной длины.
+
+\item \emph{Композицией} двух перестановок $\alpha$ и $\beta$ называется их последоветельное применение. И обозначается $\beta \circ \alpha$ -- тут вначале применяется перестановка $\alpha$, потом $\beta$.
+
+\item \emph{Обратной перестановкой $\alpha^{-1}$} называется такая переставнока, что композиция $\alpha^{-1} \circ \alpha$ тождественна, т.е. не меняет расстановки.
+
+\end{bullets}
+
+\subsection*{Задачи}
 \input{../problems/first}
+
 \end{document}
