@@ -1,0 +1,89 @@
+\begin{titlepage}
+    \begin{center}
+        \LARGE
+        Алгебра-0,5
+        \bigskip
+
+        \Large
+        Направление точных наук
+        \medskip
+
+        Егор Лунёв (\href{https://t.me/egorrshuk}{\texttt{@egorrshuk}})
+        \vfill
+
+        \begin{asy}
+            size(8cm);
+            defaultpen(fontsize(10));
+
+            pair[] start = {(0,0), (1,0), (2,0), (3,0), (4,0), (5,0)};
+            string[] startText = {"1","2","3","4","5","6"};
+            pair[] end = {(0,-2), (1,-2), (2,-2), (3,-2), (4,-2), (5,-2)};
+            string[] endText = {"2","5","1","6","3","4"};
+            // Подписи букв
+            for(int i = 0; i < 6; ++i) {
+                label(startText[i], start[i], N);
+                label(endText[i], end[i], S);
+            }
+
+            // Кривые "ниточки"
+            draw(start[0]{(1, -2)}..end[2], blue+linewidth(1)); // 1 -> 3
+            draw(start[1]{(1.2, -2)}..end[0], blue+linewidth(1)); // 2 -> 5
+            draw(start[2]{(3, -2)}..end[4], blue+linewidth(1)); // 3 -> 1
+            draw(start[3]{(2, -3)}..end[5], longdashed+red+linewidth(1)); // 4 -> 6
+            draw(start[4]{(-3, -1)}..end[1], blue+linewidth(1)); // 5 -> 2
+            draw(start[5]{(-3, -2)}..end[3], longdashed+red+linewidth(1)); // 6 -> 4
+        \end{asy}
+        \bigskip\bigskip\bigskip
+
+        \begin{asy}
+            size(0,40mm);
+            draw((0,0).. tension 2.5 ..(2,1).. tension 2.5 ..(4,0).. tension 2.5 ..(2, -1).. tension 2.5 ..cycle, linewidth(bp));
+            draw((0,0)--(2,1)--(4,0)--(2,-1)--cycle, dashed+grey);
+            draw((0,1)--(4,1)--(4,-1)--(0,-1)--cycle, dashed+grey);
+            draw((-0.2, 0)--(4.2,0), dashed+red);
+            label("$s_1$", (4.4, 0.2), red);
+            draw((2, 1.2)--(2, -1.2), dashed+blue);
+            label("$s_2$", (2.4, 1.2), blue);
+        \end{asy}
+        \begin{asy}
+            size(0,40mm);
+            triangle t = triangleabc(3,3,3);
+            draw(t);
+            point O = circumcenter(t);
+            draw(line(t.VA, O), dashed+blue);
+            draw(line(t.VB, O), dashed+blue);
+            draw(line(t.VC, O), dashed+blue);
+
+            label("$s_1$", midpoint(t.BC)+(0.5,0), blue);
+            label("$s_2$", midpoint(t.AC)+(-0.2,0.4), blue);
+            label("$s_3$", midpoint(t.BA)+(-0.3,-0.3), blue);
+
+            point Ha = midpoint(segment(O, t.VA)); 
+            point Hb = midpoint(segment(O, t.VB)); 
+            point Hc = midpoint(segment(O, t.VC));
+
+            point Ma = intersectionpoint(line(Hb, Hc), line(t.VA, O));
+            point Mb = intersectionpoint(line(Ha, Hc), line(t.VB, O));
+            point Mc = intersectionpoint(line(Hb, Ha), line(t.VC, O));
+
+            point Ta = O + O - Ma;
+            point Tb = O + O - Mb;
+            point Tc = O + O - Mc;
+
+            draw(Mc..midpoint(segment(Hb, O))..Ma, red, arrow=Arrow(TeXHead));
+            label("$r$", Hb+(-0.1, 0.3), red);
+
+            draw(Ta..Mb..Tc, red, arrow=Arrow(TeXHead));
+            label("$r^{-1}$", Mb+(0, 0.3), red);
+
+            dot(O, red+3);
+        \end{asy}
+         
+        \vfill 
+        {\color{black}
+        Место под соснами 
+        \smallskip
+
+    Лето, 2025}
+    \end{center}
+\end{titlepage}
