@@ -55,16 +55,16 @@
             point Tb = O + O - Mb;
             point Tc = O + O - Mc;
 
-            draw(Mc..midpoint(segment(Hb, O))..Ma, red, arrow=Arrow(TeXHead));
+            draw(Mc..midpoint(segment(Hb, O))..Ma, red, Arrow);
             label("$r$", Hb+(-0.1, 0.3), red);
 
-            draw(Ta..Mb..Tc, red, arrow=Arrow(TeXHead));
+            draw(Ta..Mb..Tc, red, Arrow);
             label("$r^{-1}$", Mb+(0, 0.3), red);
 
             dot(O, red+3);
         \end{asy}
         \caption{Двуугольник $D_2$ и треугольник $D_3$.}
-        \label{fig:D_23}\hfill
+        \label{fig:D_23}\qquad
 \end{center}
 \end{figure}
 
@@ -123,6 +123,14 @@
 \end{enumerate}
 
 Полная же группа додекаэдра состоит из $20 \cdot 6 = 120$ движений. Помимио перечисленных, туда входят их композиции с центральной симметрией относительно центра додекаэдра.
+
+\begin{asy}
+    import three;
+    size(8cm);
+    currentprojection = perspective(10, 5, 3);
+
+    draw(dodecahedron(origin, 1.5));
+\end{asy}
 
 \begin{practice}
     Проверьте, что полные и собственные группа куба, октаэдра и икосаэдра, соотвественно состоят из 48 и 24, 48 и 24, и 120 и 60 движений.
