@@ -29,30 +29,32 @@
 \input{sections/permutations}
 % --------------    2
 \input{sections/intro-groups}
-\input{sections/shape-isometry}
 % --------------    3
-\input{sections/action}
+\input{sections/shape-isometry}
 % --------------    4
-\input{sections/burnside}
+\input{sections/action}
 % --------------    5
+\input{sections/burnside}
 
 \newpage
-\renewcommand{\thesubsection}{\roman{subsection}}
-\setcounter{subsection}{0}
+\setcounter{subsection}{-1}
+\renewcommand{\thesubsection}{\arabic{subsection}}
 
 \section*{Задачи}
 \addcontentsline{toc}{section}{Задачи}
 
 % TODO: Сделать "словарик" в задачах
+\subsection{Отображения и множества}
+\input{problems/zero.tex}
 \subsection{Перестановки}
 \input{problems/first.tex}
 \subsection{Группы}
 \input{problems/second.tex}
-\subsection{Орбита и стабилизатор. Собственные группы фигур}
-\input{problems/third.tex}          % TODO: ПЕРЕПИСАТЬ НАХУЙ
-\subsection{Формула Пойа-Бернсайда: ожерелья, орнаменты}
+\subsection{Группы фигур}
+\input{problems/third.tex} 
+\subsection{Действие группы}
 % \input{problems/fourth.tex}
-% \subsection{Многочлены}
+\subsection{Формула Пойа-Бернсайда: ожерелья, орнаменты}
 % \input{problems/fifth.tex}
 % \subsection{Комплексные числа}
 % \input{problems/sixth.tex}
