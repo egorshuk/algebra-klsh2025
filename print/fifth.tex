@@ -1,0 +1,30 @@
+\documentclass[10pt]{article}
+\usepackage{../be-my-concrete, ../extra-algebra, ../print-geometry}
+
+\namenumberpage{Алгебра--0,5}{Подсчёт орбит}{5}
+
+\begin{document}
+\subsection*{Словарик}
+\begin{bullets}
+    \item Классом эквивалентности отношения $x \sim y \iff gx = y$ называется \emph{орбитой} точки $x$ под действием $G$ и обозначается 
+    \(Gx \defeq \{gx \mid g \in G\}.\)
+
+    Множеством всех орбит называется \emph{фактором} множества $X$ под действием $G$ и обозначается $X/G$.
+
+    \item Слоем отображения $\ev_x \colon G \twoheadrightarrow Gx$ над самой точкой $x$ называется \emph{стабилизатором} точки $x \in X$ и обозначается \( \Stab(x) \defeq \{g \in G \mid gx = x \}.\)
+    
+    \item Длина орбиты произвольной точки $x \in X$ при действии на неё конечной группы преобразований $G$ равна $|Gx| = \rfrac{|G|}{|\Stab(x)}.$ В частности, длины всех орбит и порядки стабилизаторов всех точек являются делителем порядка группы.
+
+    \item \emph{Формула Пойа-Бернсайда.} Пусть конечная группа $G$ действует на конечном множестве $X$. Для каждого $g \in G$ обозначим, через $$X^g = \{x \in X \mid gx = x \} = \{ x \in X \mid g \in \Stab(x)\}$$ множество неподвижных точек  преобразования $g$. Тогда верна следующая формула \[
+            |X/G| = \frac{1}{|G|} \cdot \sum_{g \in G}|X^g|.
+        \]
+\end{bullets}
+\subsection*{Задачки} 
+\input{../problems/fifth.tex}
+\vfill
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=0.7\linewidth]{../images/photo_2025-07-25_17-51-18.jpg}
+\end{figure}
+\vfill
+\end{document}

@@ -1,37 +1,38 @@
 \documentclass[10pt]{article}
 \usepackage{../be-my-concrete, ../extra-algebra, ../print-geometry}
 
-\namenumberpage{Группы}{2}
+\namenumberpage{Введение в группы}{2}
 
 \begin{document}
 \subsection*{Словарик}
+
 \begin{bullets}
-    \item \emph{Группа} -- это множество $G$ с операцией $\star$, которое обладает следующими свойствами: 
+    \item \emph{Группа} --- это множество $G$ с операцией $\star$, которое обладает следующими свойствами: 
     \begin{conditions}
-        \item \textit{замкнутость}: $\forall a, b \in G: a \star b \in G$;
-        \item \textit{ассоциативность}: $\forall a, b, c \in G: (a \star b) \star c = a \star (b \star c)$;
-        \item \textit{наличие нейтрального элемента}: $\exists e \in G: \forall a \in G: e \star a = a$;
-        \item \textit{наличие обратного элемента}: $\forall a \in G: \exists a^{-1} \in G: a \star a^{-1} = e$.
+        \item \textit{замкнутость}: $\forall a, b \in G \colon a \star b \in G$;
+        \item \textit{ассоциативность}: $\forall a, b, c \in G \colon (a \star b) \star c = a \star (b \star c)$;
+        \item \textit{наличие нейтрального элемента}: $\exists e \in G \colon \forall a \in G: e \star a = a$;
+        \item \textit{наличие обратного элемента}: $\forall a \in G \colon \exists a^{-1} \in G: a \star a^{-1} = e$.
     \end{conditions}
 
-\item Для группы также существует обозначение: $(G, \star)$, если операция понятна, то она обозначается $G$.
-Если группа $G$ конечна, то ее \emph{порядок} $|G|$ -- это количество элементов в ней.
-\emph{Порядком элемента} $a$ же, аналогично с перестановкой, называется такое минимальное число $d$, что $a^d = e$.
+\item Для группы существует обозначение: $(G, \star)$. Если группа $G$ конечна, то ее \emph{порядок} $|G|$ --- это количество элементов в ней.
+\emph{Порядком элемента} $x$, аналогично с перестановкой, называется такое минимальное число $d$, что $x^d = e$.
 
 \item Множество $H \subset G$ называется \emph{подгруппой} группы $(G, \star)$. Если для нее выполняются аксиомы группы (i)-(iv), то есть \begin{inumerate}[(i)]
-        \item $\forall a, b \in H: a \star b \in H$
-        \item $\forall a, b, c \in H: (a \star b) \star c = a \star (b \star c)$
-        \item $\exists e \in H: \forall a \in H: e \star a = a$
-        \item $\forall a \in H: \exists a^{-1} \in H: a \star a^{-1} = e$. 
+        \item $\forall a, b \in H \colon a \star b \in H$
+        \item $\forall a, b, c \in H \colon (a \star b) \star c = a \star (b \star c)$
+        \item $\exists e \in H \forall a \in H \colon e \star a = a$
+        \item $\forall a \in H  \exists a^{-1} \in H \colon a \star a^{-1} = e$. 
 \end{inumerate}
 Тут важно, что вместо группы $G$ написана группа $H$.
 
-\item Группа называется \emph{абелевой (коммутативной)}, если операция $\star$ коммутативна, то есть $\forall a, b \in G: a \star b = b \star a$.
+\item Группа называется \emph{абелевой (коммутативной)}, если операция $\star$ коммутативна, то есть $\forall a, b \in G \colon a \star b = b \star a$.
 
-\item \emph{Таблицой Кэли} называется таблица, в которой записаны все элементы группы и их композиции. 
+\item \emph{Таблицой Кэли (умножения)} называется таблица, в которой записаны все элементы группы и их композиции. 
 
-\item Группы называются \emph{изоморфными}, если между ними существует взаимно однозначное соответствие, сохраняющее операцию. То есть, если $\varphi: (G, \star) \to (H, *)$ -- изоморфизм, то $\forall a, b \in G: \varphi(a \star b) = \varphi(a) * \varphi(b)$. Только у изоморфных группы изоморфны таблицы Кэли. Неформально говоря, изоморфные группы -- это ,,одни и те же`` группы.
+\item Группы называются \emph{изоморфными}, если между ними существует взаимно однозначное соответствие, сохраняющее операцию. То есть, если $\varphi: (G, \star) \to (H, *)$ --- изоморфизм, то $\forall a, b \in G: \varphi(a \star b) = \varphi(a) * \varphi(b)$. Только у изоморфных группы изоморфны таблицы Кэли. Неформально говоря, изоморфные группы --- это ,,одни и те же`` группы.
 \end{bullets}
+
 \subsection*{Задачки}
 \input{../problems/second}
 \end{document}
