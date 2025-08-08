@@ -36,7 +36,9 @@
 % --------------    5
 \input{sections/burnside}
 
-\newpage
+\clearpage
+\
+\thispagestyle{empty}
 \setcounter{subsection}{-1}
 \renewcommand{\thesubsection}{\arabic{subsection}}
 
@@ -44,6 +46,7 @@
 \addcontentsline{toc}{section}{Задачи}
 
 % TODO: Сделать "словарик" в задачах
+
 \subsection{Отображения и множества}
 \input{problems/zero.tex}
 \subsection{Перестановки}
@@ -53,18 +56,18 @@
 \subsection{Группы фигур}
 \input{problems/third.tex} 
 \subsection{Действие группы}
-% \input{problems/fourth.tex}
+\input{problems/fourth.tex}
 \subsection{Формула Пойа-Бернсайда: ожерелья, орнаменты}
-% \input{problems/fifth.tex}
+\input{problems/fifth.tex}
 % \subsection{Комплексные числа}
 % \input{problems/sixth.tex}
 % \subsection{Гауссовы числа ,,в хвост и в гриву} % этого листка не будет на семинарах
 % \subsection{problems/seventh.tex}
-
-\newpage
-\markboth{Контрольная работа}{Контрольная работа}
-\addcontentsline{toc}{section}{Контрольная работа}
-\section*{Контрольная работа}
+% 
+% \newpage
+% \markboth{Контрольная работа}{Контрольная работа}
+% \addcontentsline{toc}{section}{Контрольная работа}
+% \section*{Контрольная работа}
 % \input{tasks/exam.tex}
 
 \end{document}

@@ -15,7 +15,7 @@
 % Misc
 \setlength{\headheight}{30pt}
 \def\columnseprulecolor{\color{Navy}}
-\setlength{\columnsep}{1cm}
+\setlength{\columnsep}{5mm}
 \setlength{\columnseprule}{1pt}
 \interfootnotelinepenalty=10000000
 \counterwithin*{footnote}{page}
@@ -48,24 +48,3 @@
 \fancyfoot{}
 
 
-
-% datepage
-\DeclareOption{datepage}{
-	\newcommand{\makedate}[1]{\fancypagestyle{date}
-		{\fancyhead{}
-			\fancyhead[RO]{
-				\href{https://t.me/egorrshuk}{егоррррршук} \\
-			}
-			\fancyhead[LO, RE]{
-				\nouppercase{\leftmark \\
-					\rightmark}
-			}
-			\fancyfoot{}
-			
-			\fancyfoot[LO, RE]{\thepage}
-			\fancyfoot[LE, RO]{#1}
-		}
-		\thispagestyle{date}
-	}
-}
-\ProcessOptions\relax
