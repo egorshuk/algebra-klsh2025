@@ -25,23 +25,23 @@
             draw((0,0).. tension 2.5 ..(2,1).. tension 2.5 ..(4,0).. tension 2.5 ..(2, -1).. tension 2.5 ..cycle, linewidth(bp));
             draw((0,0)--(2,1)--(4,0)--(2,-1)--cycle, dashed+grey);
             draw((0,1)--(4,1)--(4,-1)--(0,-1)--cycle, dashed+grey);
-            draw((-0.2, 0)--(4.2,0), dashed+red);
-            label("$s_1$", (4.4, 0.2), red);
-            draw((2, 1.2)--(2, -1.2), dashed+blue);
-            label("$s_2$", (2.4, 1.2), blue);
+            draw((-0.2, 0)--(4.2,0), dashed+red4);
+            label("$s_1$", (4.4, 0.2), red4);
+            draw((2, 1.2)--(2, -1.2), dashed+blue4);
+            label("$s_2$", (2.4, 1.2), blue4);
         \end{asy}
         \begin{asy}
             size(0,40mm);
             triangle t = triangleabc(3,3,3);
             draw(t);
             point O = circumcenter(t);
-            draw(line(t.VA, O), dashed+blue);
-            draw(line(t.VB, O), dashed+blue);
-            draw(line(t.VC, O), dashed+blue);
+            draw(line(t.VA, O), dashed+blue4);
+            draw(line(t.VB, O), dashed+blue4);
+            draw(line(t.VC, O), dashed+blue4);
 
-            label("$s_1$", midpoint(t.BC)+(0.5,0), blue);
-            label("$s_2$", midpoint(t.AC)+(-0.2,0.4), blue);
-            label("$s_3$", midpoint(t.BA)+(-0.3,-0.3), blue);
+            label("$s_1$", midpoint(t.BC)+(0.5,0), blue4);
+            label("$s_2$", midpoint(t.AC)+(-0.2,0.4), blue4);
+            label("$s_3$", midpoint(t.BA)+(-0.3,-0.3), blue4);
 
             point Ha = midpoint(segment(O, t.VA)); 
             point Hb = midpoint(segment(O, t.VB)); 
@@ -55,13 +55,13 @@
             point Tb = O + O - Mb;
             point Tc = O + O - Mc;
 
-            draw(Mc..midpoint(segment(Hb, O))..Ma, red, Arrow);
-            label("$r$", Hb+(-0.1, 0.3), red);
+            draw(Mc..midpoint(segment(Hb, O))..Ma, red4, Arrow);
+            label("$r$", Hb+(-0.1, 0.3), red4);
 
-            draw(Ta..Mb..Tc, red, Arrow);
-            label("$r^{-1}$", Mb+(0, 0.3), red);
+            draw(Ta..Mb..Tc, red4, Arrow);
+            label("$r^{-1}$", Mb+(0, 0.3), red4);
 
-            dot(O, red+3);
+            dot(O, red4+3);
         \end{asy}
         \caption{Двуугольник $D_2$ и треугольник $D_3$.}
         \label{fig:D_23}\qquad

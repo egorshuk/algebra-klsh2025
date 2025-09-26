@@ -1,11 +1,10 @@
 \ProvidesPackage{be-my-geometry}
-\RequirePackage[svgnames]{xcolor}
 
 % Main sizes
 \RequirePackage[
 	a5paper,
-	left = 1.5cm, 
-	right = 1.5cm, 
+	left = 1.2cm, 
+	right = 1.2cm, 
 	top = 2cm, 
 	bottom = 2cm, 
 	footnotesep = 5mm
@@ -14,7 +13,7 @@
 
 % Misc
 \setlength{\headheight}{30pt}
-\def\columnseprulecolor{\color{Navy}}
+\def\columnseprulecolor{\color{blue3}}
 \setlength{\columnsep}{5mm}
 \setlength{\columnseprule}{1pt}
 \interfootnotelinepenalty=10000000
@@ -47,4 +46,19 @@
 
 \fancyfoot{}
 
+% Date style
+\renewcommand{\date}[1]{\fancypagestyle{date}
+{\fancyhead{}
+\fancyhead[LO, RE]{
+    #1 \\
+    \thepage
+}
+\fancyhead[C]{
+    \nouppercase{\rightmark}
+}
+
+\fancyfoot{}
+}
+\thispagestyle{date}
+}
 
