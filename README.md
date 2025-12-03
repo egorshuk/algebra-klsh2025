@@ -5,13 +5,13 @@
 ## Примеры материалов
 
 **Титульная страница конспекта**  
-[![Титул](https://raw.githubusercontent.com/egorshuk/algebra-klsh2025/main/images/title.png)](https://github.com/egorshuk/algebra-klsh2025/blob/main/main.pdf)
+![Титул](https://github.com/egorshuk/algebra-klsh2025/blob/main/images/%D0%A1%D0%BD%D0%B8%D0%BC%D0%BE%D0%BA%20%D1%8D%D0%BA%D1%80%D0%B0%D0%BD%D0%B0%202025-12-03%20142011.png)
 
 **Лемма Бернсайда**  
-[![Лемма Бернсайда](https://raw.githubusercontent.com/egorshuk/algebra-klsh2025/main/images/burnside.png)](https://github.com/egorshuk/algebra-klsh2025/blob/main/main.pdf)
+![Лемма Бернсайда](https://github.com/egorshuk/algebra-klsh2025/blob/main/images/%D0%A1%D0%BD%D0%B8%D0%BC%D0%BE%D0%BA%20%D1%8D%D0%BA%D1%80%D0%B0%D0%BD%D0%B0%202025-12-03%20142053.png)
 
-**Пример листочка (print/fifth.pdf)**  
-[![Листок 5](https://raw.githubusercontent.com/egorshuk/algebra-klsh2025/main/images/print-fifth.png)](https://github.com/egorshuk/algebra-klsh2025/blob/main/print/fifth.pdf)
+**Пример листочка (print/zero.pdf)**  
+![Листок 0](https://github.com/egorshuk/algebra-klsh2025/blob/main/images/%D0%A1%D0%BD%D0%B8%D0%BC%D0%BE%D0%BA%20%D1%8D%D0%BA%D1%80%D0%B0%D0%BD%D0%B0%202025-12-03%20142211.png)
 
 ## О чём курс
 
