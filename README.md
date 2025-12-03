@@ -2,6 +2,17 @@
 
 Курс по теории групп, прочитанный мной в КЛШ-50. Материалы в репозитории могут быть полезны как тем, кто был в сезоне, так и всем, кто хочет аккуратно войти в теорию групп с геометрическим уклоном.
 
+## Примеры материалов
+
+**Титульная страница конспекта**  
+[![Титул](https://raw.githubusercontent.com/egorshuk/algebra-klsh2025/main/images/title.png)](https://github.com/egorshuk/algebra-klsh2025/blob/main/main.pdf)
+
+**Лемма Бернсайда**  
+[![Лемма Бернсайда](https://raw.githubusercontent.com/egorshuk/algebra-klsh2025/main/images/burnside.png)](https://github.com/egorshuk/algebra-klsh2025/blob/main/main.pdf)
+
+**Пример листочка (print/fifth.pdf)**  
+[![Листок 5](https://raw.githubusercontent.com/egorshuk/algebra-klsh2025/main/images/print-fifth.png)](https://github.com/egorshuk/algebra-klsh2025/blob/main/print/fifth.pdf)
+
 ## О чём курс
 
 - Симметрическая и знакопеременная группы, разложение перестановок в циклы.
@@ -14,10 +25,11 @@
 ## Как устроен репозиторий
 
 - `main.tex` — основной файл конспекта; его нужно компилировать (например, через `latexmk`).
-- `main.pdf` — уже собранная версия конспекта.
+- `main.pdf` — уже собранная версия конспекта ([открыть](https://github.com/egorshuk/algebra-klsh2025/blob/main/main.pdf)).
 - `sections/` — файловая структура по разделам курса (отдельные куски конспекта).
 - `problems/` — задачи, используемые на семинарах и в конспекте.
-- `images/` — рисунки к конспекту.
+- `images/` — рисунки и превью страниц к конспекту.
+- `print/` — печатные листы для семинаров (PDF и TeX).
 - `misc/` — вспомогательные материалы.
 - `*.sty` — стили оформления (геометрия, алгебра, верстка).
 
